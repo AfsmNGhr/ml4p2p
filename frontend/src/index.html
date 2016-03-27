@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html data-ng-app="Torrent">
+  <head>
+    <meta charset="utf-8">
+    <title>Torrent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <div layout="row" layout-align="center center">
+      <div>
+        <md-input-container>
+          <input placeholder="Поиск по фильмам ..." ng-model="search" type="text">
+        </md-input-container>
+      </div>
+    </div>
+    <!-- <md-toolbar class="md-menu-toolbar"> -->
+    <!-- <h2 class="md-toolbar-tools">Torrent</h2> -->
+    <!-- </md-toobar> -->
+    <div data-ng-controller="filmCtrl" data-ng-cloak>
+      <!-- <md-icon md-svg-src="your/icon.svg"></md-icon> -->
+      <div infinite-scroll="getMoreFilms()">
+        <div data-ng-repeat="film in films|filter: search">
+          <md-card class="my-card">
+            <!-- <md-card-header> -->
+            <!-- <md-card-avatar> -->
+            <!-- <img class="md-user-avatar" src="avatar.png"> -->
+            <!-- </md-card-avatar> -->
+            <!-- <md-card-header-text> -->
+            <!-- <span class="md-title">Title</span> -->
+            <!-- <span class="md-subhead"> -->
+            <!-- <span data-ng-bind="film.created_at|date: 'longDate'"></span> -->
+            <!-- </span> -->
+            <!-- </md-card-header-text> -->
+            <!-- </md-card-header> -->
+            <!-- <img data-ng-src="{{film.image}}"> -->
+            <div layout="column" layout-gt-xs="row" >
+              <md-card class="image-card" data-ng-if="film.image">
+                <img data-ng-src="{{film.image}}">
+              </md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">
+                    <span data-ng-bind="film.title"></span>
+                  </span>
+                  <span class="md-subhead">
+                    Добавлено:
+                    <span data-ng-bind="film.created_at|date: 'longDate'"></span>
+                  </span>
+                  <span class="md-subhead">
+                    <span data-ng-bind="film.genre"></span>
+                  </span>
+                </md-card-title-text>
+              </md-card-title>
+            </div>
+            <!-- <md-card-actions layout="row" layout-align="start center"> -->
+            <!-- <md-button>Action 1</md-button> -->
+            <!-- <md-button>Action 2</md-button> -->
+            <!-- <md-card-icon-actions> -->
+            <!-- <md-button class="md-icon-button" aria-label="icon"> -->
+            <!-- <md-icon md-svg-icon="icon"></md-icon> -->
+            <!-- </md-button> -->
+            <!-- </md-card-icon-actions> -->
+            <!-- </md-card-actions> -->
+            <md-card-content layout="row" layout-align="space-between">
+              <p>
+                <span data-ng-bind="film.announce"></span>
+              </p>
+            </md-card-content>
+          </md-card>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

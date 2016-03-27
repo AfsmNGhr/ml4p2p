@@ -1,0 +1,35 @@
+@import "../../node_modules/angular-material/angular-material.layouts.css";
+@import "../../node_modules/angular-material/angular-material.css";
+
+.my-row {
+  width: 800px;
+  margin: 20px auto;
+}
+
+.image-card {
+  margin: 0;
+  height: 300px;
+  width: 200px;
+  > img {
+    height: 300px;
+    width: 200px;
+  }
+}
+
+.my-card {
+  width: 800px;
+  margin: 20px auto;
+}
+
+.word-break {
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  word-wrap: break-word;
+}
+
+.navbar {
+}

@@ -1,0 +1,7 @@
+# coding: utf-8
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'kaminari', require: 'kaminari/sinatra'
+gem 'activerecord'
+gem 'sqlite3'
